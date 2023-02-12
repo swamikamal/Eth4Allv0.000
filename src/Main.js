@@ -1,13 +1,14 @@
 import { useState} from 'react';
 import Web3 from 'web3';
 import InfuraIPFSUpload from './infura';
-import TitleHead from './components/TitleHead.js';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import Buyerfront from './components/Buyerfront';
+import TemporaryDrawer from './components/Sidebar';
 
 
 
@@ -45,8 +46,6 @@ export default function Main() {
   return (
     <div>
     
-     <>
-     </>
      <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -58,15 +57,16 @@ export default function Main() {
             sx={{ mr: 2 }}
           >
           </IconButton>
+          <TemporaryDrawer/>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Peer-To-Peer
           </Typography>
           {walletAddress ? (<InfuraIPFSUpload walletAddress={walletAddress} />) : (
         <Button onClick={handleConnectWalletClick}>Connect Wallet</Button>)}
-          
         </Toolbar>
       </AppBar>
     </Box>
+    
 
   
     </div>
